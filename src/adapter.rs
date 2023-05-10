@@ -573,7 +573,7 @@ impl Adapter {
             let handshake_delta = now_since_1600 - peer.LastHandshake;
 
             //The time of the lash handshake is now - the delta
-             let last_handshake = now_instant.checked_sub(Duration::from_nanos(handshake_delta * 100)).unwrap_or(0);
+             let last_handshake = now_instant.checked_sub(Duration::from_nanos(handshake_delta * 100)).unwrap_or(Instant::now());
 
             let mut wg_peer = WireguardPeer {
                 flags: peer.Flags as u32,
